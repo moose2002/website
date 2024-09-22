@@ -122,14 +122,51 @@ img, video {
 }
 
 /* Form Styling */
-#contactForm input, #contactForm textarea {
+/* Form Styling */
+#contactForm input, #contactForm textarea, #contactForm select {
     width: 50%;
     padding: 10px;
     margin-bottom: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
+
+/* Drop-down (select) Menu Styling */
+#contactForm select {
+    appearance: none; /* Removes default browser styling */
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Dropdown arrow styling */
+#contactForm select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Styling for the button */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
 
 /* Button styling */
 button {
