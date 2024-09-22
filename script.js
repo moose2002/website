@@ -1,3 +1,4 @@
+// Form Submission Handler
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
 
@@ -13,7 +14,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     const hear = document.getElementById('hear').value;
     const project = document.getElementById('project').value;
 
-    // Use your provided Google Apps Script deployment URL
+    // Google Apps Script deployment URL
     const scriptURL = 'https://script.google.com/a/macros/umich.edu/s/AKfycbwA1st0IHUFvB7ANmbB5UWz4nefd31s9xLcr5r_eAN-CP-eU0qGzu0eRHkNxMeIFETm/exec';
 
     // Create a FormData object
@@ -29,7 +30,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     formData.append('hear', hear);
     formData.append('project', project);
 
-    // Send the form data to Google Sheets via the script URL
+    // Send the form data to Google Sheets
     fetch(scriptURL, { method: 'POST', body: formData })
         .then(response => response.text())
         .then(result => {
@@ -43,3 +44,18 @@ document.getElementById('contactForm').addEventListener('submit', function(event
             document.getElementById('formMessage').style.color = 'red';
         });
 });
+
+// Auto-scrolling between sections every 5 seconds
+let currentSection = 1;
+const sections = document.querySelectorAll('.image-section, .video-section');
+
+setInterval(() => {
+    // Move to the next section
+    currentSection++;
+    if (currentSection > sections.length) {
+        currentSection = 1; // Start over after the last section
+    }
+
+    // Scroll to the next section
+    sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
+}, 5000); // 5 seconds delay between scrolls
