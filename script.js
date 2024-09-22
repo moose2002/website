@@ -1,4 +1,4 @@
-\// Form Submission Handler
+// Form Submission Handler
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
 
