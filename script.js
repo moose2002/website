@@ -24,7 +24,8 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     const subject = `New Contact from ${firstName} ${lastName}`;
     const body = `First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nPhone: ${phone}\nCity: ${city}\nState: ${state}\nZip Code: ${zip}\nProducts Interested In: ${products}\nHeard About Us From: ${hear}\nProject Details: ${project}`;
 
-    const mailtoLink = `abdelmaguidmostafa@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Corrected mailto link format
+    const mailtoLink = `mailto:abdelmaguidmostafa@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailtoLink;
 
