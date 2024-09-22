@@ -13,23 +13,33 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     const hear = document.getElementById('hear').value;
     const project = document.getElementById('project').value;
 
-    // Check if all fields are filled
-    if (!firstName || !lastName || !email || !phone || !city || !state || !zip || !products || !hear || !project) {
-        document.getElementById('formMessage').textContent = 'Please fill out all fields.';
-        document.getElementById('formMessage').style.color = 'red';
-        return;
-    }
+    // Use your provided Google Apps Script deployment URL
+    const scriptURL = 'https://script.google.com/a/macros/umich.edu/s/AKfycbwA1st0IHUFvB7ANmbB5UWz4nefd31s9xLcr5r_eAN-CP-eU0qGzu0eRHkNxMeIFETm/exec';
 
-    // Send email using mailto
-    const subject = `New Contact from ${firstName} ${lastName}`;
-    const body = `First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nPhone: ${phone}\nCity: ${city}\nState: ${state}\nZip Code: ${zip}\nProducts Interested In: ${products}\nHeard About Us From: ${hear}\nProject Details: ${project}`;
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append('firstName', firstName);
+    formData.append('lastName', lastName);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('city', city);
+    formData.append('state', state);
+    formData.append('zip', zip);
+    formData.append('products', products);
+    formData.append('hear', hear);
+    formData.append('project', project);
 
-    // Corrected mailto link format
-    const mailtoLink = `mailto:abdelmaguidmostafa@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
-
-    // Show success message
-    document.getElementById('formMessage').textContent = 'Thank you for your submission!';
-    document.getElementById('formMessage').style.color = 'green';
+    // Send the form data to Google Sheets via the script URL
+    fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => response.text())
+        .then(result => {
+            console.log('Success:', result);
+            document.getElementById('formMessage').textContent = 'Form submitted successfully!';
+            document.getElementById('formMessage').style.color = 'green';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('formMessage').textContent = 'Form submission failed.';
+            document.getElementById('formMessage').style.color = 'red';
+        });
 });
