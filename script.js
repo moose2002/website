@@ -14,7 +14,14 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     const hear = document.getElementById('hear').value;
     const project = document.getElementById('project').value;
 
-    // Google Apps Script deployment URL
+    // Ensure the form fields are filled
+    if (!firstName || !lastName || !email || !phone || !city || !state || !zip || !products || !hear || !project) {
+        document.getElementById('formMessage').textContent = 'Please fill out all required fields.';
+        document.getElementById('formMessage').style.color = 'red';
+        return;
+    }
+
+    // Google Apps Script deployment URL (Replace with your URL)
     const scriptURL = 'https://script.google.com/a/macros/umich.edu/s/AKfycbwA1st0IHUFvB7ANmbB5UWz4nefd31s9xLcr5r_eAN-CP-eU0qGzu0eRHkNxMeIFETm/exec';
 
     // Create a FormData object
@@ -44,6 +51,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
             document.getElementById('formMessage').style.color = 'red';
         });
 });
+
 
 // Auto-scrolling between sections every 5 seconds
 let currentSection = 1;
