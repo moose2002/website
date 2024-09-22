@@ -8,51 +8,89 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to My Simple Website</h1>
+        <h1>Welcome to BlackWood Services</h1>
     </header>
 
     <nav>
         <ul>
-            <li><a href="#GetStarted">Get Started</a></li>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Get Started Section -->
-    <section id="GetStarted" class="get-started-section">
-        <button id="getStartedButton">Get Started</button>
-    </section>
-
     <section id="home" class="fade-in">
         <h2>Home</h2>
-        <p>This is a simple homepage for my website.</p>
+        <p>Welcome to BlackWood Services. We provide quality products and services.</p>
         <button id="alertButton">Click Me</button>
     </section>
 
     <section id="about">
         <h2>About Me</h2>
-        <p id="aboutText">This is a section where I can talk about myself.</p>
+        <p id="aboutText">We are dedicated to providing top-notch services to our customers.</p>
         <button id="changeTextButton">Change Text</button>
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
+        <h2>Contact Us</h2>
         <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
+            <label for="first">First Name*:</label>
+            <input type="text" id="first" required>
             <br>
-            <label for="email">Email:</label>
+
+            <label for="last">Last Name*:</label>
+            <input type="text" id="last" required>
+            <br>
+
+            <label for="email">Email*:</label>
             <input type="email" id="email" required>
             <br>
+
+            <label for="phone">Phone Number*:</label>
+            <input type="tel" id="phone" required>
+            <br>
+
+            <label for="city">City*:</label>
+            <input type="text" id="city" required>
+            <br>
+
+            <label for="state">State*:</label>
+            <input type="text" id="state" required>
+            <br>
+
+            <label for="zip">Zip Code*:</label>
+            <input type="text" id="zip" required>
+            <br>
+
+            <label for="products">What Products are You Interested in?*</label>
+            <select id="products" required>
+                <option value="">Please select</option>
+                <option value="Product1">Product 1</option>
+                <option value="Product2">Product 2</option>
+                <option value="Product3">Product 3</option>
+            </select>
+            <br>
+
+            <label for="hear">How Did You Hear About Us?*</label>
+            <select id="hear" required>
+                <option value="">Please select</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Friend/Family">Friend/Family</option>
+                <option value="Advertisement">Advertisement</option>
+            </select>
+            <br>
+
+            <label for="project">Tell Us More About Your Project*</label>
+            <textarea id="project" required></textarea>
+            <br>
+
             <button type="submit">Submit</button>
             <p id="formMessage"></p>
         </form>
     </section>
 
     <footer>
-        <p>All rights reserved to Blackwood Services</p>
+        <p>© 2024 Blackwood Services. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
