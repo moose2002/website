@@ -86,6 +86,53 @@ body {
     font-size: 1.5em;
 }
 
+/* Horizontal Scrolling Slideshow Section */
+.slideshow-container {
+    width: 100%;
+    overflow-x: hidden; /* Hide the scrollbar and prevent manual scrolling */
+    white-space: nowrap; /* Ensure no line breaks */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Adjust height as needed */
+    margin: 50px 0; /* Add some space above and below */
+    position: relative;
+}
+
+.slideshow {
+    display: flex;
+    animation: autoScroll 10s linear infinite; /* Automatically scrolls */
+}
+
+.slide {
+    width: calc(100vw - 20px); /* Subtract 20px for margin */
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers its container */
+    flex-shrink: 0; /* Prevents shrinking when scrolling */
+    margin-right: 20px; /* This is the gap between images */
+}
+
+/* Hide scrollbar */
+.slideshow-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in webkit-based browsers (Chrome, Safari) */
+}
+.slideshow-container {
+    -ms-overflow-style: none;  /* Hide scrollbar in Internet Explorer and Edge */
+    scrollbar-width: none;  /* Hide scrollbar in Firefox */
+}
+
+/* Auto-scrolling animation */
+@keyframes autoScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-320vw); /* Adjust based on the number of images and gaps */
+    }
+}
+
+
+
 /* Image sections */
 .image-section {
     height: 100vh;
@@ -98,10 +145,37 @@ body {
     color: white;
 }
 
-/* Image backgrounds for each section */
-#image2 {
-    background-image: url('pic1.jpg');  /* Replace 'pic1.jpg' with your correct image path */
+/* Create the split layout with two sections: image and text */
+.split-section {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+}
 
+.image-section {
+    flex: 2; /* 2/3 of the screen for the image */
+    background-image: url('pic4.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the whole div */
+    background-position: center; /* Center the image */
+}
+
+.text-section {
+    flex: 1; /* 1/3 of the screen for the text */
+    background-color: #ccc5c0; /* Matching background color similar to the image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the text vertically */
+    padding: 40px; /* Add some padding */
+    color: white; /* Text color */
+}
+
+.text-section h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.text-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
 }
 
 
@@ -115,13 +189,6 @@ body {
     text-align: center;
 }
 
-/* Responsive Image and Video Sizing */
-img, video {
-    width: 100%;
-    height: auto;
-}
-
-/* Form Styling */
 /* Form Styling */
 #contactForm input, #contactForm textarea, #contactForm select {
     width: 50%;
@@ -135,24 +202,7 @@ img, video {
     border-radius: 5px;
 }
 
-/* Drop-down (select) Menu Styling */
-#contactForm select {
-    appearance: none; /* Removes default browser styling */
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Dropdown arrow styling */
-#contactForm select:focus {
-    outline: none;
-    border-color: #4CAF50;
-}
-
-/* Styling for the button */
+/* Button styling */
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -165,14 +215,6 @@ button {
 
 button:hover {
     background-color: #45a049;
-}
-
-
-/* Button styling */
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
 }
 
 /* Responsive Media Queries */
