@@ -226,15 +226,15 @@ button:hover {
 
 /* Extra small screens (less than 400px wide) */
 @media (max-width: 400px) {
-    .split-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* Center the text vertically */
-        align-items: center; /* Center the text horizontally */
-        text-align: center;
-        padding: 0; /* Remove extra padding */
+    .image-section {
+        height: 70vh;
+        background-image: url('pic4.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 2px solid red; /* Debugging: add a border to see if the section is visible */
     }
-
+}
     .image-section {
         height: 50vh; /* Ensure image section has a visible height */
         width: 100%; /* Full width */
