@@ -68,4 +68,3 @@ const scrollInterval = setInterval(() => {
         behavior: 'smooth'
     });
 }, 5000); // Adjust the delay (5000ms = 5 seconds)
-
