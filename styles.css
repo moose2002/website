@@ -180,6 +180,10 @@ body {
     margin-right: 15px;
 }
 
+#image2 {
+  background-image: url('pic4.jpg');
+
+}
 #image3 {
     background-image: url('pic2.jpg');
 }
@@ -225,15 +229,17 @@ button:hover {
     .split-section {
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Center text vertically */
-        align-items: center; /* Center text horizontally */
-        text-align: center; /* Ensure text is centered */
-        padding: 20px;
+        justify-content: center; /* Center the text vertically */
+        align-items: center; /* Center the text horizontally */
+        text-align: center;
+        padding: 0; /* Remove extra padding around the section */
     }
 
     .image-section {
-        height: 50vh; /* Adjust image height */
-        background-size: cover;
+        height: 50vh; /* Adjust image height for mobile */
+        width: 100%; /* Ensure the image takes the full width */
+        background-image: url('your-image.jpg'); /* Replace with your actual image path */
+        background-size: cover; /* Ensure the image covers the container */
         background-position: center;
     }
 
@@ -243,7 +249,7 @@ button:hover {
         justify-content: center; /* Vertically center the text */
         text-align: center;
         padding: 20px;
-        background-color: #ccc5c0; /* Matching background color as seen in the image */
+        background-color: #ccc5c0; /* Matching background color */
         color: white;
     }
 
@@ -268,6 +274,7 @@ button:hover {
 
     .image-section {
         flex: 1;
+        background-image: url('pic4.jpg'); /* Replace with your actual image path */
         background-size: cover;
         background-position: center;
     }
