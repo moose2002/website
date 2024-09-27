@@ -232,15 +232,16 @@ button:hover {
         justify-content: center; /* Center the text vertically */
         align-items: center; /* Center the text horizontally */
         text-align: center;
-        padding: 0; /* Remove extra padding around the section */
+        padding: 0; /* Remove extra padding */
     }
 
     .image-section {
-        height: 50vh; /* Adjust image height for mobile */
-        width: 100%; /* Ensure the image takes the full width */
-        background-image: url('your-image.jpg'); /* Replace with your actual image path */
-        background-size: cover; /* Ensure the image covers the container */
-        background-position: center;
+        height: 50vh; /* Ensure image section has a visible height */
+        width: 100%; /* Full width */
+        background-image: url('pic4.jpg'); /* Replace with actual image */
+        background-size: cover; /* Ensure image covers the container */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent the image from repeating */
     }
 
     .text-section {
@@ -249,7 +250,7 @@ button:hover {
         justify-content: center; /* Vertically center the text */
         text-align: center;
         padding: 20px;
-        background-color: #ccc5c0; /* Matching background color */
+        background-color: #ccc5c0; /* Background similar to your image */
         color: white;
     }
 
@@ -265,7 +266,7 @@ button:hover {
     }
 }
 
-/* Tablet */
+/* Tablet screens (601px - 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
     .split-section {
         display: flex;
@@ -274,7 +275,7 @@ button:hover {
 
     .image-section {
         flex: 1;
-        background-image: url('pic4.jpg'); /* Replace with your actual image path */
+        background-image: url('pic4.jpg'); /* Replace with your actual image */
         background-size: cover;
         background-position: center;
     }
