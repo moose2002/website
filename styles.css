@@ -225,28 +225,37 @@ button:hover {
     .split-section {
         display: flex;
         flex-direction: column;
+        justify-content: center; /* Center text vertically */
+        align-items: center; /* Center text horizontally */
+        text-align: center; /* Ensure text is centered */
+        padding: 20px;
     }
 
     .image-section {
-        height: 60vh; /* Adjust image height for mobile screens */
+        height: 50vh; /* Adjust image height */
+        background-size: cover;
+        background-position: center;
     }
 
     .text-section {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end; /* Align text to the bottom */
-        height: 40vh; /* Adjust the height as needed */
+        justify-content: center; /* Vertically center the text */
+        text-align: center;
         padding: 20px;
-        background-color: rgba(0, 0, 0, 0.5); /* Optional: Add semi-transparent background */
+        background-color: #ccc5c0; /* Matching background color as seen in the image */
+        color: white;
     }
 
     .text-section h1 {
-        font-size: 4.5vw;
-        margin-bottom: 10px; /* Add space between heading and text */
+        font-size: 5vw; /* Adjust font size for mobile */
+        margin-bottom: 20px; /* Add space between heading and paragraph */
     }
 
     .text-section p {
-        font-size: 3.5vw;
+        font-size: 3.5vw; /* Adjust font size for mobile */
+        line-height: 1.6;
+        margin-bottom: 20px;
     }
 }
 
@@ -254,11 +263,11 @@ button:hover {
 @media (min-width: 601px) and (max-width: 1024px) {
     .split-section {
         display: flex;
-        flex-direction: row; /* Side by side layout for tablet */
+        flex-direction: row; /* Horizontal layout for tablets */
     }
 
     .image-section {
-        flex: 2;
+        flex: 1;
         background-size: cover;
         background-position: center;
     }
@@ -267,8 +276,10 @@ button:hover {
         flex: 1;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end; /* Align text to the bottom */
+        justify-content: center; /* Align text vertically */
+        text-align: center;
         padding: 40px;
+        background-color: #ccc5c0;
     }
 
     .text-section h1 {
@@ -277,6 +288,8 @@ button:hover {
     }
 
     .text-section p {
-        font-size: 2vw;
+        font-size: 1.8vw;
+        line-height: 1.8;
+        margin-bottom: 20px;
     }
 }
