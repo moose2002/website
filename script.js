@@ -55,15 +55,16 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
 // Auto-scrolling between sections every 5 seconds
 let currentSection = 1;
-const sections = document.querySelectorAll('.image-section, .video-section');
-
-setInterval(() => {
-    // Move to the next section
-    currentSection++;
-    if (currentSection > sections.length) {
-        currentSection = 1; // Start over after the last section
+// Auto-scroll the slideshow every 5 seconds
+let scrollContainer = document.querySelector('.slideshow-container');
+let scrollAmount = 0;
+const scrollInterval = setInterval(() => {
+    scrollAmount += window.innerWidth; // Scroll by the width of the viewport
+    if (scrollAmount >= scrollContainer.scrollWidth) {
+        scrollAmount = 0; // Reset scroll to the start
     }
-
-    // Scroll to the next section
-    sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
-}, 5000); // 5 seconds delay between scrolls
+    scrollContainer.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
+}, 5000); // Adjust the delay (5000ms = 5 seconds)
