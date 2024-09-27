@@ -1,313 +1,60 @@
-/* General styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-    scroll-behavior: smooth;
-}
-
-/* Navigation Menu */
-header {
-    background-color: #333;
-    padding: 10px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-.nav-menu li {
-    margin: 0 20px;
-}
-
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.nav-menu a:hover {
-    text-decoration: underline;
-}
-
-/* Adjust the body to start below the fixed header */
-body {
-    padding-top: 60px;
-}
-
-/* Video background section */
-.video-section {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-#bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    object-fit: cover; /* Ensures video resizes and covers the entire screen */
-}
-
-/* Ensure content is centered and on top of the video */
-.video-section .content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: white;
-}
-
-.content h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-}
-
-.content p {
-    font-size: 1.5em;
-}
-
-/* Horizontal Scrolling Slideshow Section */
-.slideshow-container {
-    width: 100%;
-    overflow-x: hidden; /* Hide the scrollbar and prevent manual scrolling */
-    white-space: nowrap; /* Ensure no line breaks */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh; /* Adjust height as needed */
-    margin: 50px 0; /* Add some space above and below */
-    position: relative;
-}
-
-.slideshow {
-    display: flex;
-    animation: autoScroll 10s linear infinite; /* Automatically scrolls */
-}
-
-.slide {
-    width: calc(100vw - 20px); /* Subtract 20px for margin */
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers its container */
-    flex-shrink: 0; /* Prevents shrinking when scrolling */
-    margin-right: 20px; /* This is the gap between images */
-}
-
-/* Hide scrollbar */
-.slideshow-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in webkit-based browsers (Chrome, Safari) */
-}
-.slideshow-container {
-    -ms-overflow-style: none;  /* Hide scrollbar in Internet Explorer and Edge */
-    scrollbar-width: none;  /* Hide scrollbar in Firefox */
-}
-
-/* Auto-scrolling animation */
-@keyframes autoScroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-320vw); /* Adjust based on the number of images and gaps */
-    }
-}
-
-/* Image sections */
-.image-section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color: white;
-}
-
-/* Split section layout */
-.split-section {
-    display: flex;
-    height: 100vh; /* Full viewport height */
-}
-
-.image-section {
-    flex: 2; /* 2/3 of the screen for the image */
-    background-image: url('pic4.jpg'); /* Replace with your image path */
-    background-size: cover; /* Ensures the image covers the whole div */
-    background-position: center; /* Center the image */
-}
-
-.text-section {
-    flex: 1; /* 1/3 of the screen for the text */
-    background-color: #ccc5c0; /* Matching background color similar to the image */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align content towards the top */
-    padding: 40px 40px; /* Create space around the text */
-    color: white; /* Text color */
-}
-
-.text-section h1 {
-    font-size: 2em; /* Slightly smaller font for the title */
-    margin-bottom: 15px; /* Reduced space between the heading and the paragraph */
-    line-height: 1.3; /* Adjust line height for better spacing */
-}
-
-.text-section p {
-    font-size: 1.1em; /* Slightly smaller font size for the paragraph */
-    line-height: 2.0; /* Adjust line height to control spacing */
-    margin-bottom: 15px; /* Reduced space between paragraphs */
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-#image3 {
-    background-image: url('pic2.jpg');
-}
-
-/* Section content styling */
-.section-content {
-    padding: 50px;
-    text-align: center;
-}
-
-/* Form Styling */
-#contactForm input, #contactForm textarea, #contactForm select {
-    width: 50%;
-    padding: 10px;
-    margin-bottom: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Button styling */
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Responsive Media Queries */
-
-/* Mobile */
-@media (max-width: 600px) {
-    .nav-menu a {
-        font-size: 14px;
+/* Extra small screens (less than 400px wide) */
+@media (max-width: 400px) {
+    .split-section {
+        display: flex;
+        flex-direction: column;
     }
 
-    .content h1 {
-        font-size: 5vw; /* Smaller for mobile */
-    }
-
-    .content p {
-        font-size: 3.5vw; /* Smaller paragraph for mobile */
-    }
-
-    .text-section h1 {
-        font-size: 5vw; /* Adjust text for mobile */
-    }
-
-    .text-section p {
-        font-size: 3.5vw; /* Adjust text for mobile */
+    .image-section {
+        height: 60vh; /* Adjust image height for mobile screens */
     }
 
     .text-section {
-        padding: 20px; /* Adjust padding */
-    }
-}
-
-/* Extra small screens (less than 400px wide) */
-@media (max-width: 400px) {
-    .content {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end; /* Align content to the bottom */
-        text-align: center;
+        justify-content: flex-end; /* Align text to the bottom */
+        height: 40vh; /* Adjust the height as needed */
         padding: 20px;
-        height: 100%; /* Make sure the container takes full height */
-    }
-
-    .content h1 {
-        font-size: 4vw;
-        margin-bottom: 10px; /* Add some space between text elements */
-    }
-
-    .content p {
-        font-size: 3vw;
-        margin-bottom: 10px; /* Add spacing below the paragraph */
+        background-color: rgba(0, 0, 0, 0.5); /* Optional: Add semi-transparent background */
     }
 
     .text-section h1 {
         font-size: 4.5vw;
+        margin-bottom: 10px; /* Add space between heading and text */
     }
 
     .text-section p {
-        font-size: 3vw;
-    }
-
-    .text-section {
-        padding: 20px;
+        font-size: 3.5vw;
     }
 }
 
 /* Tablet */
 @media (min-width: 601px) and (max-width: 1024px) {
-    #contactForm input, #contactForm textarea {
-        width: 70%;
+    .split-section {
+        display: flex;
+        flex-direction: row; /* Side by side layout for tablet */
     }
 
-    .content {
+    .image-section {
+        flex: 2;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .text-section {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end; /* Align content to the bottom */
-        text-align: center;
-        padding: 20px;
-        height: 100%; /* Make sure the container takes full height */
-    }
-    .content h1 {
-        font-size: 2.5vw;
-    }
-
-    .content p {
-        font-size: 1.5vw;
+        justify-content: flex-end; /* Align text to the bottom */
+        padding: 40px;
     }
 
     .text-section h1 {
         font-size: 3vw;
+        margin-bottom: 20px;
     }
 
     .text-section p {
-        font-size: 1.5vw;
+        font-size: 2vw;
     }
 }
